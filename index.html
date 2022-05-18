@@ -12,6 +12,66 @@
         <script src="controllers.js"></script>
     </head>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script>
+var myApp = angular.module('myApp', []);
+ 
+myApp.directive('fileModel', ['$parse', function ($parse) {
+return {
+restrict: 'A',
+link: function(scope, element, attrs) {
+var model = $parse(attrs.fileModel);
+var modelSetter = model.assign;
+ 
+element.bind('change', function(){
+scope.$apply(function(){
+modelSetter(scope, element[0].files); 
+});
+});
+}
+};
+}]);
+ 
+myApp.service('dosyaYukle', ['$http', function ($http) {
+this.uploadFileToUrl = function(dosyalar, yuklemeAdres){
+ 
+/*döngü ile seçilen dosyaları yukleme klasörüne tek tek yüklüyoruz.*/
+for (var i in dosyalar) 
+{
+var fdata = new FormData();
+fdata.append("file", dosyalar[i]); /*$_FILES['file'] olarak çağrılacak kısım*/
+console.log(dosyalar[i]);
+ 
+$http.post(yuklemeAdres, fdata, {
+transformRequest: angular.identity,
+headers: {'Content-Type': undefined}
+})
+ 
+.success(function(data){
+console.log(data);
+})
+ 
+.error(function(data){
+console.log(data);
+}); 
+} 
+}
+}]);
+//upload.php dosyasını oluşturmayı unutmayın.
+myApp.controller('myCtrl', ['$scope', 'dosyaYukle', function($scope, fileUpload){
+$scope.dosyaYukleyici = function(){
+var file = $scope.dosya;
+ 
+var yuklemeAdres = "upload.php";
+fileUpload.uploadFileToUrl(file, yuklemeAdres);
+};
+}]);
+ 
+</script>
+    
+    
+    
+    
 <script>
  
 var app = angular
