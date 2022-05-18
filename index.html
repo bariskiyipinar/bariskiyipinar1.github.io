@@ -1,80 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"> 
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script>
-var i=0;
-var app = angular
-.module("persModul", [])
-.controller("persController", function ($scope) {
- 
-var personeller=[
-{isim:"Hayri",soyisim:"KARA",dogum:new Date(1988,7,10),maas:3000},
-{isim:"Yaşar",soyisim:"DOĞAN",dogum:new Date(1988,3,30),maas:2500},
-{isim:"İsmet",soyisim:"ULUÇ",dogum:new Date(1983,6,20),maas:2700},
-{isim:"Ayşe",soyisim:"YURT",dogum:new Date(1968,6,15),maas:3500},
-{isim:"Sunay",soyisim:"YERLİ",dogum:new Date(1998,6,10),maas:2850},
-{isim:"Nazmiye",soyisim:"ÇARIKÇI",dogum:new Date(1995,4,10),maas:2000}
-];
- 
-$scope.personeller = personeller;
- 
-$scope.sutunSirala = "isim";
-$scope.cevir = false;
- 
-$scope.veriSirala = function (sutun) {
-$scope.cevir = ($scope.sutunSirala == sutun) ? !$scope.cevir : false;
-$scope.sutunSirala = sutun;
-}
- 
-$scope.siralaClass = function (sutun) {
- 
-if ($scope.sutunSirala == sutun) {
-return $scope.cevir ? 'azalan' : 'artan';
-}
-return '';
- 
-} 
- 
-});
- 
-</script>
-<style>
-.artan{
-background:url(yukari.png);
-background-position: left center;
-background-repeat: no-repeat;
-}
-.azalan{
-background:url(asagi.png);
-background-position: left center;
-background-repeat: no-repeat;
-}
- 
-</style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        angular.module("FilterModule", []).controller("FilterController", function ($scope) {
+            var PersonelListesi =
+                [
+                    { Adi: "Gençay", SoyAdi: "Yıldız", Yas: 26, Memleket: "Artvin" },
+                    { Adi: "Mustafa", SoyAdi: "Klavuz", Yas: 25, Memleket: "Ankara" },
+                    { Adi: "Ayşe", SoyAdi: "Hotin", Yas: 31, Memleket: "Mersin" },
+                    { Adi: "Nurettin", SoyAdi: "Uzunsakal", Yas: 54, Memleket: "Çorum" },
+                    { Adi: "Songül", SoyAdi: "Fitoz", Yas: 24, Memleket: "Artvin" },
+                    { Adi: "Fatma", SoyAdi: "Yıldız", Yas: 23, Memleket: "Aydın" },
+                    { Adi: "Gürol", SoyAdi: "Yıldız", Yas: 38, Memleket: "Artvin" },
+                ];
+            $scope.personelListesi = PersonelListesi;
+        });
+    </script>
 </head>
-<body ng-app="persModul">
-<div ng-controller="persController">
-<table border="1" width="430">
-<thead>
-<tr>
-<th ng-click="veriSirala('isim')"><div ng-class="siralaClass('isim')">İsim</div></th>
-<th ng-click="veriSirala('soyisim')"><div ng-class="siralaClass('soyisim')">Soyisim</div></th>
-<th ng-click="veriSirala('dogum')"><div ng-class="siralaClass('dogum')">Doğum Tarihi</div></th>
-<th ng-click="veriSirala('maas')"><div ng-class="siralaClass('maas')">Maaş</div></th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="personel in personeller | orderBy:sutunSirala:cevir">
-<td> {{ personel.isim | uppercase }} </td>
-<td> {{ personel.soyisim }} </td>
-<td> {{ personel.dogum | date:'dd-MM-yyyy'}} </td>
-<td> {{ personel.maas |number :2 }} </td>
-</tr>
-</tbody>
-</table>
-</div>
+<body ng-app="FilterModule" ng-controller="FilterController">
+    <input type="text" placeholder="Filtre değeri" ng-model="arama" />
+    <table>
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Yaşı</th>
+                <th>Memleketi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="Personel in personelListesi | filter : arama">
+                <td>{{Personel.Adi}}</td>
+                <td>{{Personel.SoyAdi}}</td>
+                <td>{{Personel.Yas}}</td>
+                <td>{{Personel.Memleket}}</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
- 
 </html>
