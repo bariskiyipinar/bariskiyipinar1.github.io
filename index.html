@@ -13,6 +13,8 @@
     </head>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    
+    
 <script>
 var myApp = angular.module('myApp', []);
  
@@ -103,7 +105,22 @@ $scope.personeller = personeller;
 </script>
     
 
-<body ng-app="persModul">
+    <style>
+         body{
+        background-image: url(resim1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+       }
+    </style>
+    
+    
+    
+    
+    
+    
+<body ng-app="persModul" >
+    
 <div ng-controller="persController">
 <div>
 <input type="text" ng-model="arama.isim" placeholder="İsim Girin">
