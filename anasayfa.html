@@ -3,6 +3,7 @@
 <head>
     
 <meta charset="utf-8"> 
+    
  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -42,7 +43,7 @@ this.uploadFileToUrl = function(dosyalar, yuklemeAdres){
 for (var i in dosyalar) 
 {
 var fdata = new FormData();
-fdata.append("file", dosyalar[i]); /*$_FILES['file'] olarak çağrılacak kısım*/
+fdata.append("file", dosyalar[i]);
 console.log(dosyalar[i]);
  
 $http.post(yuklemeAdres, fdata, {
