@@ -39,6 +39,7 @@ modelSetter(scope, element[0].files);
 myApp.service('dosyaYukle', ['$http', function ($http) {
 this.uploadFileToUrl = function(dosyalar, yuklemeAdres){
  
+    
 /*döngü ile seçilen dosyaları yukleme klasörüne tek tek yüklüyoruz.*/
 for (var i in dosyalar) 
 {
@@ -62,6 +63,7 @@ console.log(data);
 }
 }]);
 
+    
 //upload.php dosyasını oluşturmayı unutmayın.
 myApp.controller('myCtrl', ['$scope', 'dosyaYukle', function($scope, fileUpload){
 $scope.dosyaYukleyici = function(){
@@ -88,6 +90,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
         background-repeat: no-repeat;
         background-attachment: fixed;
        }
+        
     </style>
     
     
@@ -276,6 +279,14 @@ $scope.personeller = personeller;
  
 </script>
     
+    <!--Yazıların Body Kısmı-->
+    
+    
+    <body>
+        
+        
+        
+    </body>
 
 
  
