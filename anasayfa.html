@@ -149,6 +149,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       height: 25px;
       font-size:1.2em;
        margin-left: 5px;
+     
     }
     button{
       border:none;
@@ -158,6 +159,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       height: 50px;
       text-align: center;
       font-size:1.2em;
+     
       
     }
     table{
@@ -165,7 +167,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       margin:10px;
       width: 80%;
       color:black;
-        margin-left:1px
+      margin-left:1px
     }
     td,th{
       border:1px solid white;
@@ -199,11 +201,12 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     
 
 <body>
-    <center>
+
   <div id="sayfa">
     <label>Ad:</label>    <input type="text"  id="ad">
     <label>Soyad:</label> <input type="text"  id="soyad">
     <label>Yaş:</label>   <input type="number"  id="yas">
+   
     <button id="ekle">Tabloya Ekle</button>
   <table id="liste">
       <tr>
@@ -211,12 +214,15 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
         <th>Soyad</th>
         <th>Yaş</th>
       </tr>
+    
   </table>
+
   </div>
-    <center>
+
  <!--//Eklemeli Tablo Script Kısmı :)-->
     
   <script>
+
     const ad=document.querySelector("#ad");
     const soyad=document.querySelector("#soyad");
     const yas=document.querySelector("#yas");
@@ -256,6 +262,7 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     }
  
   </script>
+
 </body>
 </html>
     <body>
