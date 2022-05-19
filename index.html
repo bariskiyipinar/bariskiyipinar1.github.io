@@ -3,18 +3,20 @@
 <head>
     
 <meta charset="utf-8"> 
+       <!--Bootstrap  Kütüphanesi-->
  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" >
+   <!--Angular Js Kütüphanesi-->
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    
+
+    <!--Angular Js Kütüphanesi-->
       <link rel="stylesheet" href="tasarim.css">
         <script src="angular.min.js"></script>
         <script src="angular-file-upload.js"></script>
         <script src="controllers.js"></script>
     </head>
-    
+
+    <!--AngularJs Kütüphanesi-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    
-    
 <script>
 var myApp = angular.module('myApp', []);
  
@@ -59,6 +61,7 @@ console.log(data);
 } 
 }
 }]);
+
 //upload.php dosyasını oluşturmayı unutmayın.
 myApp.controller('myCtrl', ['$scope', 'dosyaYukle', function($scope, fileUpload){
 $scope.dosyaYukleyici = function(){
@@ -71,42 +74,15 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
  
 </script>
     
+    <!--Sayfanın Style Kısmı-->
     
     
-    
-<script>
- 
-var app = angular
-.module("persModul", [])
-.controller("persController", function ($scope) {
- 
-var personeller=[
-{ "isim": "Yezdan","soyisim": "Erdurak","cinsiyet": "Erkek","maas": "3569" },
-{ "isim": "Elfiye","soyisim": "Şencin","cinsiyet": "Erkek","maas": "4143" },
-{ "isim": "Ezfer","soyisim": "Ovacık","cinsiyet": "Erkek","maas": "2705" },
-{ "isim": "Teberhun","soyisim": "Karadağ sazak","cinsiyet": "Kız","maas": "2337" },
-{ "isim": "Çağar","soyisim": "Alkan","cinsiyet": "Kız","maas": "1883" },
-{ "isim": "Mükafi","soyisim": "Düşer","cinsiyet": "Kız","maas": "3869" },
-{ "isim": "Süreha","soyisim": "Karakaya","cinsiyet": "Erkek","maas": "1796" },
-{ "isim": "Taberi","soyisim": "Abacılı","cinsiyet": "Kız","maas": "4054" },
-{ "isim": "Bala","soyisim": "Merkan","cinsiyet": "Erkek","maas": "2703" },
-{ "isim": "Nil","soyisim": "Aksaç","cinsiyet": "Erkek","maas": "3510" },
-{ "isim": "Ulualp","soyisim": "Seziş","cinsiyet": "Erkek","maas": "2688" },
-{ "isim": "Çağlar","soyisim": "Selçuk atay","cinsiyet": "Erkek","maas": "3524" },
-{ "isim": "Berkem","soyisim": "Erdoğan","cinsiyet": "Kız","maas": "2290" },
-{ "isim": "Özgünel","soyisim": "Demirtaş","cinsiyet": "Erkek","maas": "3193" },
-{ "isim": "Mübelliğ","soyisim": "Ölçer","cinsiyet": "Kız","maas": "3603" }
- 
-];
- 
-$scope.personeller = personeller;
-});
- 
-</script>
-    
-
     <style>
-         body{
+         h1{
+           text-align: center;
+           text-shadow: 2px 2px 3px black;
+       }
+        body{
         background-image: url(resim1.jpg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -116,11 +92,134 @@ $scope.personeller = personeller;
     
     
     
+    <!--Sayfanın Başlığı-->
+    
+    <body>
+        
+        <h1><font color="black" size="7" face="Perpetua">ANGULARJS İLE ARAMA FİLTRESİ YAPIMI</font></h1>
+        
+    </body>
     
     
     
-<body ng-app="persModul" >
     
+    
+    <!--//Eklemeli Tablo kısmı :)-->
+    
+<html lang="tr">
+<head>
+ <!---->
+  <style>
+    #sayfa{
+      width: 500px;
+      margin:auto;
+      padding:20px;
+       
+    }
+    label{
+      display:block;
+      margin-top:5px;
+    }
+    input{
+      width: 200px;
+      height: 25px;
+      font-size:1.2em;
+       margin-left: 5px;
+    }
+    button{
+      border:none;
+      display:block;
+      margin-top:5px;
+      width: 204px;
+      height: 50px;
+      text-align: center;
+      font-size:1.2em;
+      
+    }
+    table{
+      background:lightblue;
+      margin:10px;
+      width: 80%;
+      color:black;
+    }
+    td,th{
+      border:1px solid white;
+      border-spacing: 0px;
+      margin: 0px;
+    }
+  </style>
+    
+</head>
+    
+<body>
+  <div id="sayfa">
+    <label>Ad:</label>    <input type="text"  id="ad">
+    <label>Soyad:</label> <input type="text"  id="soyad">
+    <label>Yaş:</label>   <input type="number"  id="yas">
+    <button id="ekle">Tabloya Ekle</button>
+  <table id="liste">
+      <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Yaş</th>
+      </tr>
+  </table>
+  </div>
+    
+ <!--//Eklemeli Tablo Script Kısmı :)-->
+    
+  <script>
+    const ad=document.querySelector("#ad");
+    const soyad=document.querySelector("#soyad");
+    const yas=document.querySelector("#yas");
+    const ekle=document.querySelector("#ekle");
+    const liste=document.querySelector("#liste");
+ 
+    ekle.onclick=function(){
+     
+      
+     
+      let tAd=document.createElement("td");
+      let tSoyad=document.createElement("td");
+      let tYas=document.createElement("td");
+ 
+      tAd.textContent=ad.value;//textboxtan değeri okuyup aktardım.
+      tSoyad.textContent=soyad.value;//textboxtan değeri okuyup aktardım.
+      tYas.textContent=yas.value;//textboxtan değeri okuyup aktardım.
+ 
+     //TR Yİ OLUŞTURDUM
+      let tr=document.createElement("tr");
+ 
+      //tdleri tr içine ekliyoruz
+      tr.appendChild(tAd);
+      tr.appendChild(tSoyad);
+      tr.appendChild(tYas);
+ 
+      //tr elementini liste (tablo) içine ekliyoruz
+      liste.appendChild(tr);
+ 
+      //nenelerin için eklemeden sonra temizleyelim
+      ad.value="";
+      soyad.value="";
+      yas.value="";
+ 
+      //temizlemeden sonra ad içine odaklansın
+      ad.focus();
+    }
+ 
+  </script>
+</body>
+</html>
+    
+    
+    
+    
+    
+    
+    <!--Eklemesiz Tablo Body kısmı:)-->
+    
+    <body ng-app="persModul">
+        
 <div ng-controller="persController">
 <div>
 <input type="text" ng-model="arama.isim" placeholder="İsim Girin">
@@ -147,6 +246,37 @@ $scope.personeller = personeller;
 </tbody>
 </table>
 </div>
+        
+        
 </body>
+    
+  
+     <!--Eklemesiz Tablo script kısmı :)-->
+    
+<script>
+ 
+var app = angular
+.module("persModul", [])
+.controller("persController", function ($scope) {
+ 
+var personeller=[
+{ "isim": "Barış","soyisim": "Kıyıpınar","cinsiyet": "Erkek","maas": "3569" },
+{ "isim": "Elif","soyisim": "Gül","cinsiyet": "Kız","maas": "4143" },
+{ "isim": "Ali","soyisim": "Karadağ","cinsiyet": "Erkek","maas": "2705" },
+{ "isim": "Şeyma","soyisim": "Karadağ ","cinsiyet": "Kız","maas": "2337" },
+{ "isim": "Çağlar","soyisim": "Alkan","cinsiyet": "Erkek","maas": "1883" },
+{ "isim": "Mustafa","soyisim": "Düşer","cinsiyet": "Erkek","maas": "3869" },
+{ "isim": "Süreyya","soyisim": "Karakaya","cinsiyet": "Kız","maas": "1796" },
+{ "isim": "Osman","soyisim": "Abacılı","cinsiyet": "Erkek","maas": "4054" },
+{ "isim": "Fatma","soyisim": "Şafak","cinsiyet": "Kız","maas": "2703" },
+];
+ 
+$scope.personeller = personeller;
+});
+ 
+</script>
+    
+
+
  
 </html>
