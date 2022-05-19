@@ -164,6 +164,9 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       border-spacing: 0px;
       margin: 0px;
     }
+      .hizala{
+          margin-left: 185px;
+      }
   </style>
     
 </head>
@@ -239,14 +242,14 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
     <!--Eklemesiz Tablo Body kısmı:)-->
     
     <body ng-app="persModul">
- <center>       
-<div ng-controller="persController">
-<div>
+       
+<div ng-controller="persController" >
+<div class="hizala">
 <input type="text" ng-model="arama.isim" placeholder="İsim Girin">
 <input type="text" ng-model="arama.cinsiyet" placeholder="Cinsiyet Girin">
 <input type="checkbox" ng-model="tamEslestir" >Tam Eşleştir
 </div>
- 
+ <center>
 <table border=1>
 <thead>
 <tr>
