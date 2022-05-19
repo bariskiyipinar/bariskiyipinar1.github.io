@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baris KİYİPİNAR Github Website</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+
+</head>
+
+<style>
+ 
+body{
+    background-image:url(resim1.jpg);
+		       background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+.yazi1{
+    color: white;
+    font-size: 60px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    animation: yazi-anim 3s ease;
+    z-index: 999;
+    background-color:black;
+    
+}
+.yazi2{
+    color: black;
+    font-size: 30px;
+    letter-spacing: 8px;
+}
+.yazi2 a{
+    color: orange;
+    text-decoration: none;
+}
+
+@keyframes yazi-anim{
+    0%{
+        margin-bottom: -40px;
+        letter-spacing: 8px;
+    }
+    30%{
+        margin-bottom: -40px;
+        letter-spacing: 30px;
+    }
+    90%{
+        margin-bottom:-40px;
+    }
+}
+</style>
+
+
+<body>
+    <div class="container">
+        <div class="yazi1">SİTEME HOŞGELDİNİZ</div>
+        <div class="yazi2">Anasayfa İçin <a href="index.html">TIKLAYIN</a></div>
+    </div>
+</body>
+
+</html>
