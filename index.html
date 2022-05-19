@@ -99,12 +99,18 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       .title1{
         color:black;
         text-shadow: 2px 2px 3px black;
+        
       }
         body{
         background-image: url(resim1.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+       }
+       .kayanresim{
+         margin-left: 25px;
+         color:black;
+        text-shadow: 2px 2px 3px black;
        }
     </style>
 
@@ -167,6 +173,24 @@ fileUpload.uploadFileToUrl(file, yuklemeAdres);
       .hizala{
           margin-left: 185px;
       }
+
+
+      .galeri { 
+            margin: 10px 40px; 
+            border: white;
+        } 
+          
+        .galeri img { 
+            width: 200px; 
+            height: 100px; 
+            transition: 1s; 
+            padding: 5px; 
+        } 
+        
+        .galeri img:hover { 
+            filter: drop-shadow(4px 4px 6px gray); 
+            transform: scale(1.1); 
+        } 
   </style>
     
 </head>
@@ -324,13 +348,37 @@ $scope.personeller = personeller;
           Eğer angular kütüphanesini sayfanıza dahil etmediyseniz sayfada direk olarak { 4 + 3 } düz bir metin şeklinde gözükecektir.</p>
 
         <br>
-        <u> <h2><font color="black" size="5" face="Perpetua">Modül Oluşturma</font></h1></u>
+        <u> <h2><font color="black" size="5" face="Perpetua">Modül Oluşturma</font></h2></u>
           <p class="p1">Modül oluşturmak için aşağıdaki gibi bir sözdizimi kullanmanız gerekmektedir.</p>
           <p class="p1"> <font color="blue"> var app = angular.module('gemStore', []);</font></p>
           <p class="p1">Üstteki kodda gemStore diye adlandırılan kısım module adı oluyor html tarafında ng-app attribute’ümüze bu adı vereceğiz. ikinci parametrede ise köşeli parantezler içerisine modül bağımlılıkları eklenecek.</p>
           <br>
-        <img src="Gif1.gif" style="width:200px;height: 200px;margin-left: 50px;margin: 30px;" alt="Angularjs ile arama filtresi olusturma">
+          <u> <h2><font color="black" size="6" face="Perpetua">AngularJS İle Arama Filtresi</font></h1></u>
+          <p class="p1"> Angularjs kütüphanesinin nasıl HTML bloğunda çalıştığınını sizlere anlattım.Şimdi ise size Angularjs kütüphanesini kullanarak nasıl arama filtresi yapacağız onu göstericem.
+
+            Aşağıdaki örnekte arama yapmak için textbox kutumuz mevcut. Kutuda girdiğiniz kriterlerin hepsine göre arama yapıyor.Textboxa'da değer girişi olduğunda tüm eşleşen satırlarlara göre süzme işlemi yapılmış olacaktır.Aşağıda size Angularjs ile yapılan bi takım görselleri sizlere örnek olarak göstermek istedim.</p>
+
+        
+        <br><br>
+
+        <div class="row mt-5">
+          <div class="col-12">
+             <marquee direction="up"><font  size="5" class="kayanresim">Örnek Resimler😀</marquee>
+          </div>
       
+          <div class="galeri"> 
+            <a href="Gif1.gif"> 
+                <img src="Gif1.gif" > 
+            </a> 
+            <a href="Gif2.gif"> 
+                <img src="Gif2.gif" > 
+            </a> 
+            <a href="gif3.gif"> 
+                <img src="gif3.gif" > 
+            </a> 
+            <a href="gif4.gif"> 
+              <img src="gif4.gif" > 
+        </div>
     </body>
 
 
